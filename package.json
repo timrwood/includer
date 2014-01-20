@@ -1,0 +1,22 @@
+{
+  "name": "includer",
+  "version": "0.0.1",
+  "description": "Concat javascript with include statements",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/timrwood/includer.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timrwood/includer/issues"
+  },
+  "homepage": "https://github.com/timrwood/includer",
+  "dependencies": {
+    "glob": "~3.2.8"
+  }
+}

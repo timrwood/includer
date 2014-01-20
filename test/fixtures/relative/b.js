@@ -1,0 +1,1 @@
+var root_relative_b = 'root_relative_b';
