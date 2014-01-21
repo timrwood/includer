@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/timrwood/includer",
   "dependencies": {
-    "glob": "~3.2.8"
+    "glob": "~3.2.8",
+    "q": "~1.0.0"
   }
 }
