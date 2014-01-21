@@ -38,4 +38,14 @@ describe('Includer', function () {
 	it('should be able to handle whitespace variance', function (done) {
 		compare('whitespace.js', {}, done);
 	});
+
+	it('should be able to handle globbed includes', function (done) {
+		compare('glob.js', {}, done);
+	});
+
+	it('should be able to change the separator', function (done) {
+		compare('separator.js', {
+			separator : '\n\n\n'
+		}, done);
+	});
 });
