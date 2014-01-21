@@ -1,3 +1,3 @@
 var glob_1 = 1;
-include('./splat/*');
+include('./glob/*');
 var glob_2 = 2;

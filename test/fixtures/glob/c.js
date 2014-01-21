@@ -1,0 +1,1 @@
+var root_glob_c = 'root_glob_c';

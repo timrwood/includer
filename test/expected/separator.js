@@ -3,17 +3,17 @@ var glob_1 = 1;
 
 
 (function(){
-var root_splat_a = 'root_splat_a';
+var root_glob_a = 'root_glob_a';
 })();
 
 
 (function(){
-var root_splat_b = 'root_splat_b';
+var root_glob_b = 'root_glob_b';
 })();
 
 
 (function(){
-var root_splat_c = 'root_splat_c';
+var root_glob_c = 'root_glob_c';
 })();
 
 

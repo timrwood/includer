@@ -48,4 +48,8 @@ describe('Includer', function () {
 			separator : '\n\n\n'
 		}, done);
 	});
+
+	it('should not include files more than once', function (done) {
+		compare('duplicates.js', {}, done);
+	});
 });

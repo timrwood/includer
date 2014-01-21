@@ -1,1 +1,0 @@
-var root_splat_c = 'root_splat_c';
