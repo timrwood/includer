@@ -16,6 +16,9 @@
     "url": "https://github.com/timrwood/includer/issues"
   },
   "homepage": "https://github.com/timrwood/includer",
+  "devDependencies": {
+    "mocha": "~1.14.0"
+  },
   "dependencies": {
     "glob": "~3.2.8",
     "q": "~1.0.0"
