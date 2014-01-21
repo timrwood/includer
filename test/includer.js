@@ -52,4 +52,8 @@ describe('Includer', function () {
 	it('should not include files more than once', function (done) {
 		compare('duplicates.js', {}, done);
 	});
+
+	it('should not break on recursive includes', function (done) {
+		compare('recurse.js', {}, done);
+	});
 });
