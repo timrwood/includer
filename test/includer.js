@@ -56,4 +56,8 @@ describe('Includer', function () {
 	it('should not break on recursive includes', function (done) {
 		compare('recurse.js', {}, done);
 	});
+
+	it('should handle varied file names', function (done) {
+		compare('extensions.js', {}, done);
+	});
 });
