@@ -65,3 +65,23 @@ describe('Includer', function () {
 		compare('glob-only-wrapper.js', {}, done);
 	});
 });
+
+describe('Debugging', function () {
+	it('should output information if a glob has no matches', function (done) {
+		var globPath = path.resolve('test/fixtures/this-file-should-not-exist/*.js');
+		var actualMessage = '';
+		var expectedMessage = 'No files matched "' + globPath + '"';
+
+		includer('test/fixtures/missing-files.js', {
+			debug : function (message) {
+				actualMessage = message;
+			}
+		}, function (err, data) {
+			process.nextTick(function () {
+				assert.equal(data, '');
+				assert.equal(actualMessage, expectedMessage);
+				done();
+			});
+		});
+	});
+});
