@@ -1,5 +1,4 @@
 (function(){
-(function(){
 var root_a = 'root_a';
 })();
 (function(){
@@ -16,5 +15,4 @@ var root_relative_b = 'root_relative_b';
 })();
 (function(){
 var root_relative_c = 'root_relative_c';
-})();
 })();

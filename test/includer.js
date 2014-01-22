@@ -60,4 +60,8 @@ describe('Includer', function () {
 	it('should handle varied file names', function (done) {
 		compare('extensions.js', {}, done);
 	});
+
+	it('should not wrap files that only have GlobNodes', function (done) {
+		compare('glob-only-wrapper.js', {}, done);
+	});
 });
