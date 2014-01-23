@@ -84,4 +84,26 @@ describe('Debugging', function () {
 			});
 		});
 	});
+
+	it('should console.log information if the debug option is true', function (done) {
+		var globPath = path.resolve('test/fixtures/this-file-should-not-exist/*.js');
+		var actualMessage = '';
+		var expectedMessage = 'No files matched "' + globPath + '"';
+		var oldConsoleLog = console.log;
+
+		console.log = function (message) {
+			actualMessage = message;
+		};
+
+		includer('test/fixtures/missing-files.js', {
+			debug : true
+		}, function (err, data) {
+			process.nextTick(function () {
+				assert.equal(data, '');
+				assert.equal(actualMessage, expectedMessage);
+				console.log = oldConsoleLog;
+				done();
+			});
+		});
+	});
 });
