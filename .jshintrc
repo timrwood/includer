@@ -3,7 +3,6 @@
   "bitwise"       : true,
   "curly"         : true,
   "eqeqeq"        : true,
-  "freeze"        : true,
   "undef"         : true,
   "latedef"       : "nofunc",
   "newcap"        : true,
