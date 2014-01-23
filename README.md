@@ -137,6 +137,10 @@ For other tools that are tackling the same problem in different ways, see [r.js]
 
 Includer was inspired by [grunt-neuter](https://github.com/trek/grunt-neuter).
 
+## Changelog
+
+See the [changelog](changelog.md)
+
 ## License
 
 [MIT License](LICENSE)
