@@ -8,7 +8,6 @@
   "latedef"       : "nofunc",
   "newcap"        : true,
   "noempty"       : true,
-  "es5"           : true,
   "strict"        : true,
   "globalstrict"  : true,
   "quotemark"     : "single",
