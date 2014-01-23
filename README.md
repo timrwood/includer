@@ -1,4 +1,4 @@
-# Includer [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]
+# Includer [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url] [![Code Climate][codeclimate-image]][codeclimate-url]
 
 > Concatenate JavaScript files with inline `include` statements.
 
@@ -149,3 +149,6 @@ Includer was inspired by [grunt-neuter](https://github.com/trek/grunt-neuter).
 
 [depstat-url]: https://david-dm.org/timrwood/includer
 [depstat-image]: https://david-dm.org/timrwood/includer.png
+
+[codeclimate-url]: https://codeclimate.com/github/timrwood/includer
+[codeclimate-image]: https://codeclimate.com/github/timrwood/includer.png
