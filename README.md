@@ -20,7 +20,7 @@ npm install includer --save-dev
 
 ## Example
 
-Suppose we want to concat these files together.
+Suppose we want to concatenate these files together.
 
 ```js
 // app.js                    pages/home.js              pages/about.js
@@ -46,6 +46,8 @@ When `app.js` is run through Includer, it will output the following.
 
 ## Usage
 
+### includer(filepath, [options], callback)
+
 ```js
 var includer = require('includer');
 
@@ -56,12 +58,12 @@ includer('path/to/entry.js', options, function (err, data) {
 });
 ```
 
-Files to be concatenated.
+## Include Syntax
 
 ```js
 include('./a.js');  // Paths are relative to the current file.
-include('b.js');    // This is equivalent to using './b.js'.
-include('./c');     // If no extension is found, .js will be used.
+include('b.js');    // This is equivalent './b.js'.
+include('./c');     // If no extension is found, '.js' will be used.
 include("./d.js");  // Single or double quotes are supported.
 include('../e.js'); // Upwards directory traversal is supported.
 include('./f');
@@ -71,6 +73,62 @@ include('./*.js');  // node-glob patterns are supported.
 
 ## Options
 
+### `separator`
+
+```js
+includer(filepath, {
+	separator : '\n\n\n'
+}, cb);
+```
+
+By default, all files are joined together by a `\n`. To change this, use the `seperator` option.
+
+### `wrap`
+
+```js
+includer(filepath, {
+	wrap : function (src) {
+		return '(function(){' + src + '})()';
+	}
+}, cb);
+```
+
+Includer will wrap all files in an IIFE by default. To change the wrapping for files, use the `wrap` option.
+
+The `wrap` option method will be called with the file's included contents as the only argument. It should return a string with the wrapped file contents.
+
+To not wrap files, simply return the file's included contents as is.
+
+```js
+includer(filepath, {
+	wrap : function (src) {
+		return src;
+	}
+}, cb);
+```
+
+### `debug`
+
+```js
+includer(filepath, {
+	debug : true
+}, cb);
+```
+
+Sometimes included globs have no matches. Includer will skip these globs silently.
+
+If the `debug` option is true, a notification will be logged to the console when globs have no matches.
+
+If the `debug` option is a function, it will be called with the debug message as the only parameter.
+
+```js
+includer(filepath, {
+	debug : function (message) {
+		logs.push(message);
+	}
+}, cb);
+```
+
 ## Alternatives
 
 For other tools that are tackling the same problem in different ways, see [r.js](http://requirejs.org/docs/optimization.html), [browserify](http://browserify.org/), and [grunt-neuter](https://github.com/trek/grunt-neuter).
@@ -78,6 +136,10 @@ For other tools that are tackling the same problem in different ways, see [r.js]
 ## Credits
 
 Includer was inspired by [grunt-neuter](https://github.com/trek/grunt-neuter).
+
+## License
+
+[MIT License](LICENSE)
 
 [npm-url]: https://npmjs.org/package/includer
 [npm-image]: https://badge.fury.io/js/includer.png
