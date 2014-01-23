@@ -53,6 +53,13 @@ describe('Includer', function () {
 		compare('duplicates.js', {}, done);
 	});
 
+	it('should not deduplicate files across different runs with same config', function (done) {
+		var config = {};
+		compare('duplicates.js', config, function () {
+			compare('duplicates.js', config, done);
+		});
+	});
+
 	it('should not break on recursive includes', function (done) {
 		compare('recurse.js', {}, done);
 	});
