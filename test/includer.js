@@ -113,4 +113,24 @@ describe('Debugging', function () {
 			});
 		});
 	});
+
+	it('should not log information if the debug option is falsy', function (done) {
+		var actualMessage;
+		var oldConsoleLog = console.log;
+
+		console.log = function (message) {
+			actualMessage = message;
+		};
+
+		includer('test/fixtures/missing-files.js', {
+			debug : false
+		}, function (err, data) {
+			process.nextTick(function () {
+				assert.equal(data, '');
+				assert(!actualMessage);
+				console.log = oldConsoleLog;
+				done();
+			});
+		});
+	});
 });
