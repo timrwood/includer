@@ -1,12 +1,14 @@
 'use strict';
 
-var FileNode = require('./lib/FileNode');
+var FileNode = require('./lib/FileNode'),
+	File = require('./lib/File');
 
 module.exports = function (src, opts, cb) {
-	var file = new FileNode(src, opts);
+	var file = new File(opts),
+		fileNode = new FileNode(src, file);
 
-	file.promise.then(function () {
-		cb(null, file.toString());
+	fileNode.promise.then(function () {
+		cb(null, fileNode.toString());
 	});
 };
 
