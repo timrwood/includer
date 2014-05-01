@@ -53,6 +53,10 @@ describe('Includer', function () {
 		compare('duplicates.js', {}, done);
 	});
 
+	it('should not hang when including itself', function (done) {
+		compare('self.js', {}, done);
+	});
+
 	it('should not deduplicate files across different runs with same config', function (done) {
 		var config = {};
 		compare('duplicates.js', config, function () {
