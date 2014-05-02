@@ -1,5 +1,9 @@
 ## History
 
+### 0.0.3 (2014-05-01)
+
+* Add support for windows paths. Issue #9 via @isochronous.
+
 ### 0.0.2 (2014-01-23)
 
 * Prevent files from being deduplicated across all runs when using the same opts.

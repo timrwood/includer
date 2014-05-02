@@ -1,6 +1,6 @@
 {
   "name": "includer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Concat javascript with include statements",
   "main": "index.js",
   "scripts": {
