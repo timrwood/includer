@@ -1,2 +1,2 @@
-include('A/a.js');
-include('B/*.js');
+include('@A/a.js');
+include('@B/*.js');

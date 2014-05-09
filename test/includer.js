@@ -78,7 +78,7 @@ describe('Includer', function () {
 	});
 
     it('should treat leading tildes in include paths as a reference to the CWD', function (done) {
-        compare('tildeMapping.js', {}, done);
+        compare('baseMapping.js', {}, done);
     });
 
     it('should treat leading tildes as a reference to baseUrl option when provided', function (done) {
@@ -87,8 +87,8 @@ describe('Includer', function () {
 
     it('should replace the first path segment with the matching path mapping when provided', function (done) {
         var pathConfig = {
-            'A': '~/test/fixtures/pathMapping/A',
-            'B': '~/test/fixtures/pathMapping/B'
+            'A': ':base/test/fixtures/pathMapping/A',
+            'B': ':base/test/fixtures/pathMapping/B'
         };
         compare('pathMapping.js', { paths: pathConfig }, done);
     });

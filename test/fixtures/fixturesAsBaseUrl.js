@@ -1,2 +1,2 @@
-include('~/pathMapping/A/a.js');
-include('~/pathMapping/B/b.js');
+include(':base/pathMapping/A/a.js');
+include(':base/pathMapping/B/b.js');
