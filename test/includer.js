@@ -4,7 +4,8 @@
 var includer = require('../index'),
 	assert = require('assert'),
 	path = require('path'),
-	fs = require('fs');
+	fs = require('fs'),
+    os = require('os');
 
 function compare(filename, opts, done) {
 	var src = path.join('test/fixtures', filename),
@@ -75,4 +76,21 @@ describe('Includer', function () {
 	it('should not wrap files that only have GlobNodes', function (done) {
 		compare('glob-only-wrapper.js', {}, done);
 	});
+
+    it('should treat leading tildes in include paths as a reference to the CWD', function (done) {
+        compare('tildeMapping.js', {}, done);
+    });
+
+    it('should treat leading tildes as a reference to baseUrl option when provided', function (done) {
+        compare('fixturesAsBaseUrl.js', { baseUrl: 'test/fixtures' }, done);
+    });
+
+    it('should replace the first path segment with the matching path mapping when provided', function (done) {
+        var pathConfig = {
+            'A': '~/test/fixtures/pathMapping/A',
+            'B': '~/test/fixtures/pathMapping/B'
+        };
+        compare('pathMapping.js', { paths: pathConfig }, done);
+    });
+
 });
