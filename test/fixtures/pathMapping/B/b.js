@@ -1,0 +1,1 @@
+var map_b = "map_b";
