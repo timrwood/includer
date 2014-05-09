@@ -77,11 +77,11 @@ describe('Includer', function () {
 		compare('glob-only-wrapper.js', {}, done);
 	});
 
-    it('should treat leading tildes in include paths as a reference to the CWD', function (done) {
+    it('should treat a leading base string in include paths as a reference to the CWD when baseUrl option is not provided', function (done) {
         compare('baseMapping.js', {}, done);
     });
 
-    it('should treat leading tildes as a reference to baseUrl option when provided', function (done) {
+    it('should treat a leading :base string as a reference to baseUrl option when provided', function (done) {
         compare('fixturesAsBaseUrl.js', { baseUrl: 'test/fixtures' }, done);
     });
 
