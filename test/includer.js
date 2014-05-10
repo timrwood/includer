@@ -4,8 +4,7 @@
 var includer = require('../index'),
 	assert = require('assert'),
 	path = require('path'),
-	fs = require('fs'),
-    os = require('os');
+	fs = require('fs');
 
 function compare(filename, opts, done) {
 	var src = path.join('test/fixtures', filename),
@@ -77,20 +76,24 @@ describe('Includer', function () {
 		compare('glob-only-wrapper.js', {}, done);
 	});
 
-    it('should treat a leading base string in include paths as a reference to the CWD when baseUrl option is not provided', function (done) {
-        compare('baseMapping.js', {}, done);
-    });
+	it('should replace @base alias in include paths with the cwd', function (done) {
+		compare('base-mapping.js', {}, done);
+	});
 
-    it('should treat a leading :base string as a reference to baseUrl option when provided', function (done) {
-        compare('fixturesAsBaseUrl.js', { baseUrl: 'test/fixtures' }, done);
-    });
+	it('should replace @base alias in include paths with the overwritten path', function (done) {
+		compare('base-mapping-overwrite.js', {
+			paths: {
+				base : 'test/fixtures'
+			}
+		}, done);
+	});
 
-    it('should replace the first path segment with the matching path mapping when provided', function (done) {
-        var pathConfig = {
-            'A': ':base/test/fixtures/pathMapping/A',
-            'B': ':base/test/fixtures/pathMapping/B'
-        };
-        compare('pathMapping.js', { paths: pathConfig }, done);
-    });
-
+	it('should replace the first path segment with the matching path mapping when provided', function (done) {
+		compare('path-mapping.js', {
+			paths: {
+				a : 'test/fixtures/path-mapping/a',
+				b : 'test/fixtures/path-mapping/b'
+			}
+		}, done);
+	});
 });

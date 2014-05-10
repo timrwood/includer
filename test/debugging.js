@@ -44,6 +44,23 @@ describe('Debugging', function () {
 		});
 	});
 
+	it('should output information if a mapping was not found', function (done) {
+		var globPath = path.resolve('test/fixtures/@a/a.js');
+		var actualMessage = '';
+		var expectedMessage = 'No mapping for @a found in the paths config.No files matched "' + globPath + '"';
+
+		includer('test/fixtures/path-mapping-missing.js', {
+			debug : function (message) {
+				actualMessage += message;
+			}
+		}, function () {
+			process.nextTick(function () {
+				assert.equal(actualMessage, expectedMessage);
+				done();
+			});
+		});
+	});
+
 	it('should console.log information if the debug option is true', function (done) {
 		var globPath = path.resolve('test/fixtures/this-file-should-not-exist/*.js');
 		var actualMessage = '';

@@ -9,7 +9,7 @@
   "noempty"       : true,
   "strict"        : true,
   "globalstrict"  : true,
-  "quotemark"     : "single",
+  "quotmark"      : "single",
   "unused"        : true,
   "maxdepth"      : 2,
   "maxstatements" : 10,
