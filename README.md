@@ -129,6 +129,40 @@ includer(filepath, {
 }, cb);
 ```
 
+### `paths`
+
+By default, all `include()` paths are relative to the current file.
+
+However, relative paths become unwieldy when files are far apart.
+
+```js
+include('../../../../../../scripts/src/config/file.js');
+```
+
+With the `paths` option, you can specify path mappings. These mappings are relative to the current working directory.
+
+```js
+includer(filepath, {
+	paths : {
+		config : 'scripts/src/config'
+		vendor : 'vendor/libs/js'
+	}
+}, cb);
+```
+
+To use the path mappings, prefix an `include()` with `@` and the mapping name.
+
+```js
+include('@config/file.js');   // CWD/scripts/src/config/file.js
+include('@vendor/jquery.js'); // CWD/vendor/libs/js/jquery.js
+```
+
+A `@base` mapping to the current working directory is provided for free.
+
+```js
+include('@base/file.js'); // CWD/file.js
+```
+
 ## Alternatives
 
 For other tools that are tackling the same problem in different ways, see [r.js](http://requirejs.org/docs/optimization.html), [browserify](http://browserify.org/), and [grunt-neuter](https://github.com/trek/grunt-neuter).
