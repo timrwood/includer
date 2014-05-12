@@ -75,4 +75,25 @@ describe('Includer', function () {
 	it('should not wrap files that only have GlobNodes', function (done) {
 		compare('glob-only-wrapper.js', {}, done);
 	});
+
+	it('should replace @base alias in include paths with the cwd', function (done) {
+		compare('base-mapping.js', {}, done);
+	});
+
+	it('should replace @base alias in include paths with the overwritten path', function (done) {
+		compare('base-mapping-overwrite.js', {
+			paths: {
+				base : 'test/fixtures'
+			}
+		}, done);
+	});
+
+	it('should replace the first path segment with the matching path mapping when provided', function (done) {
+		compare('path-mapping.js', {
+			paths: {
+				a : 'test/fixtures/path-mapping/a',
+				b : 'test/fixtures/path-mapping/b'
+			}
+		}, done);
+	});
 });
