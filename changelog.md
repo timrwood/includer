@@ -1,5 +1,9 @@
 ## History
 
+### 0.1.0 (2014-05-12)
+
+* Add `paths` option. See #10, #11, and #12. Via @isochronous.
+
 ### 0.0.3 (2014-05-01)
 
 * Add support for windows paths. Issue #9 via @isochronous.
