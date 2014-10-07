@@ -109,4 +109,37 @@ describe('Splitter', function () {
 
 		assert.equal(output.length, expected.length);
 	});
+
+	it('should be able to handle leading whitespace on the following lines', function () {
+		var output = split([
+			'(function () {',
+			'  include("a");',
+			'',
+			'  include("b");',
+			'',
+			'  a("test");',
+			'',
+			'  include("b");',
+			'',
+			'  include("c");',
+			'',
+			'  b("test");',
+			'}).call(this);'
+		].join('\n'));
+		var expected = [
+			'(function () {',
+			'include("a")',
+			'include("b")',
+			'\n  a("test");',
+			'include("b")',
+			'include("c")',
+			'\n  b("test");\n}).call(this);'
+		];
+
+		for (var i = 0; i < output.length && i < expected.length; i++) {
+			assert.equal(output[i], expected[i]);
+		}
+
+		assert.equal(output.length, expected.length);
+	});
 });
