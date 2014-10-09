@@ -1,5 +1,9 @@
 ## History
 
+### 0.1.1 (2014-10-09)
+
+* Fixed an issue with leading whitespace sometimes causing a file not to be included.
+
 ### 0.1.0 (2014-05-12)
 
 * Add `paths` option. See #10, #11, and #12. Via @isochronous.
